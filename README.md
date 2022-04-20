@@ -89,3 +89,15 @@ SELECT name, LENGTH(name), continent, LENGTH(continent), capital, LENGTH(capital
   FROM world
  WHERE name LIKE 'G%'
 ```
+
+
+### Substring
+> left(name, 1) means the first character of string name.
+
+```sql
+SELECT name, capital
+FROM world
+where left(name, 1) = left(capital, 1)
+AND name <> capital
+;
+```
