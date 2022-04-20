@@ -101,3 +101,19 @@ where left(name, 1) = left(capital, 1)
 AND name <> capital
 ;
 ```
+
+### count names with all vowels and no space. 
+
+```sql
+SELECT name
+   FROM world
+WHERE 
+name LIKE '%a%' and 
+name LIKE '%e%' and 
+name LIKE '%i%' and 
+name LIKE '%o%' and 
+name LIKE '%u%' 
+
+AND name NOT LIKE '% %'
+;
+```
