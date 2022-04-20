@@ -79,6 +79,9 @@ select name, round(gdp/population, -3) from world
 where gdp >= 1000000000000;
 ```
 
+> 3 is for the numbers after decimal <br>
+> -3 is for the numbers before decimal <br>
+
 ### Length
 
 ```sql
