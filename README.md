@@ -102,6 +102,13 @@ AND name <> capital
 ;
 ```
 
+```sql
+SELECT name,  capital
+FROM world 
+WHERE substr(name , 1 ,1) = substr(capital, 1 , 1) 
+AND name <> capital
+```
+
 ### count names with all vowels and no space. 
 
 ```sql
