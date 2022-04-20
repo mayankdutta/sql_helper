@@ -133,3 +133,13 @@ where
 (subject = 'Physics' and yr = 1980) OR
 (subject = 'Chemistry' and yr = 1984); 
 ```
+
+### for special characters 
+> add \ infront of special characters.
+
+### Order by desc
+```sql
+select winner, yr, subject from nobel 
+where winner like 'Sir%'
+order by yr desc;
+```
