@@ -71,3 +71,10 @@ _Exclusive OR (XOR). Show the countries that are big by area (more than 3 millio
 select name, round(population/1000000, 2), round(gdp/1000000000, 2) from world
 where continent='South America';
 ```
+
+#### Round upto nearest 1000
+
+```sql
+select name, round(gdp/population, -3) from world
+where gdp >= 1000000000000;
+```
