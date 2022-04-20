@@ -137,9 +137,10 @@ where
 ### for special characters 
 > add \ infront of special characters.
 
-### Order by desc
+### Order by yr, name(if year same) DESC
 ```sql
-select winner, yr, subject from nobel 
-where winner like 'Sir%'
-order by yr desc;
+SELECT winner, yr, subject
+FROM nobel
+WHERE winner LIKE 'sir%'
+ORDER BY yr DESC, winner
 ```
