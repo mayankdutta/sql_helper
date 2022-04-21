@@ -73,3 +73,24 @@ select name , round((population/(select population from world where name = 'Germ
 select name from world where gdp >
 all(select gdp from world where continent = 'Europe' and gdp > 0);
 ```
+
+
+### synchronized query 
+
+> The above example is known as a correlated or synchronized sub-query. <br> 
+
+> Using correlated subqueries <br>
+> A correlated subquery works like a nested loop: the subquery only has access to rows related to a single record at a time in the outer query. The technique relies on table aliases to identify two different uses of the same table, one in the outer query and the other in the subquery. <br>
+
+> One way to interpret the line in the WHERE clause that references the two table is “… where the correlated values are the same”.
+
+> In the example provided, you would say “select the country details from world where the population is greater than or equal to the population of all countries where the continent is the same”. <br>
+
+```sql
+SELECT continent, name, area FROM world x
+  WHERE area >= ALL
+    (SELECT area FROM world y
+        WHERE y.continent=x.continent
+          AND population>0)
+
+```
