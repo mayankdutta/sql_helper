@@ -94,3 +94,14 @@ SELECT continent, name, area FROM world x
           AND population>0)
 
 ```
+
+#### question 2
+> List each continent and the name of the country that comes first alphabetically.
+
+```sql
+select continent, name from world x 
+where name <= all
+(select name from world y
+where x.continent = y.continent
+); 
+```
