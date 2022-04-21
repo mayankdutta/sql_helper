@@ -64,7 +64,10 @@ select name , round((population/(select population from world where name = 'Germ
 ```
 
 ### ALL 
-> compare with all values in select query.
+> compare with all values in select query. <br> 
+> We can use the word ALL to allow >= or > or < or <=to act over a list. For example, you can find the largest country in the world, by population with this query: <br> 
+> You need the condition gdp > 0 in the sub-query as some countries have null for gdp. <br> 
+
 
 ```sql
 select name from world where gdp >
