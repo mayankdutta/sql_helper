@@ -62,3 +62,11 @@ OR
 ```sql
 select name , round((population/(select population from world where name = 'Germany'))*100) || '%' from world where continent = 'Europe'; 
 ```
+
+### ALL 
+> compare with all values in select query.
+
+```sql
+select name from world where gdp >
+all(select gdp from world where continent = 'Europe' and gdp > 0);
+```
