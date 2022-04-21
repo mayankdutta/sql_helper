@@ -20,3 +20,11 @@ or continent =
 (select continent from world where  name = 'Australia')
 order by name;
 ```
+
+OR 
+
+```sql
+select name , continent from world where continent in 
+((select continent from world where name = 'Argentina'),(select continent from world where name = 'Australia')) 
+order by name 
+```
