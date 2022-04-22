@@ -105,3 +105,14 @@ where name <= all
 where x.continent = y.continent
 ); 
 ```
+
+
+#### Question
+> Some countries have populations more than three times that of all of their neighbours (in the same continent). Give the countries and continents.
+
+```sql
+select name, continent from world x 
+where population >= all(
+select 3*population from world y 
+where x.continent = y.continent and x.name <> y.name);
+```
