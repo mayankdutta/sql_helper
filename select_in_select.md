@@ -135,3 +135,18 @@ WHERE  continent IN (SELECT DISTINCT( continent )
                                              FROM   world y
                                              WHERE  x.continent = y.continent)) 
 ```
+
+#### Question
+> 5. Select the code that would show the countries with a greater GDP than any country in Africa (some countries may have NULL gdp values).
+
+```sql
+SELECT name FROM bbc
+ WHERE gdp > (SELECT MAX(gdp) FROM bbc WHERE region = 'Africa')
+```
+
+alternate approach 
+
+```sql
+SELECT name FROM bbc
+ WHERE gdp > ALL (SELECT gdp FROM bbc WHERE region = 'Africa' AND gdp<>NULL)
+```
