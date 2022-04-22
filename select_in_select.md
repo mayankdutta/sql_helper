@@ -111,8 +111,27 @@ where x.continent = y.continent
 > Some countries have populations more than three times that of all of their neighbours (in the same continent). Give the countries and continents.
 
 ```sql
-select name, continent from world x 
-where population >= all(
-select 3*population from world y 
-where x.continent = y.continent and x.name <> y.name);
+SELECT NAME,
+       continent
+FROM   world x
+WHERE  population >= ALL (SELECT 3 * population
+                          FROM   world y
+                          WHERE  x.continent = y.continent
+                                 AND x.NAME <> y.NAME); 
+```
+
+
+#### Question 
+> Find the continents where all countries have a population <= 25000000. Then find the names of the countries associated with these continents. Show name, continent and population.
+
+```sql
+SELECT NAME,
+       continent,
+       population
+FROM   world z
+WHERE  continent IN (SELECT DISTINCT( continent )
+                     FROM   world x
+                     WHERE  25000000 >= ALL (SELECT population
+                                             FROM   world y
+                                             WHERE  x.continent = y.continent)) 
 ```
